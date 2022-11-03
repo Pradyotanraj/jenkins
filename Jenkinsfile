@@ -9,7 +9,7 @@ pipeline{
                 sh 'mvn clean package'
             }
             post{
-                success{
+                sucess{
                     echo "Archiving the Artifacts"
                     archiArtifacts artifacts: '**/target/*.war'
                 }
@@ -17,7 +17,7 @@ pipeline{
         }
         stage ('Deploy to tomcat server') {
             steps{
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-users', path: '', url: 'http://35.78.205.99:8081/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-users', path: '', url: '')], contextPath: null, war: '**/*.war'
             }
         }
     }
