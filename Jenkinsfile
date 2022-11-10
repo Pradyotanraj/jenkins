@@ -17,7 +17,7 @@ pipeline{
         }
         stage ('Deploy to tomcat server') {
             steps{
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-users', path: '', url: 'http://13.112.107.182:8081/')], contextPath: null, war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-users', path: '', url: 'http://52.197.190.118:8081/')], contextPath: null, war: '**/*.war'
             }
         }
     }
